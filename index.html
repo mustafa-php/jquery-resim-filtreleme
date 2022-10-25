@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript ile Filtreleme</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body class="bg-dark p-3">
+    <style>
+      img {
+        height: 15vw;
+        margin: 0.3rem;
+      }
+
+      .gizle {
+        display: none;
+      }
+    </style>
+    <div class="text-center p-3 pb-5">
+        <button class="btn btn-light">Tümü</button>
+      <button class="btn btn-primary --hayvan">Hayvan</button>
+      <button class="btn btn-danger --sehir">Şehir</button>
+      <button class="btn btn-success --doga">Doğa</button>
+    </div>
+
+    <div class="row">
+      <div class="col-auto">
+        <img src="resim/arasokak.jpg" class="sehir" alt="" />
+      </div>
+      <div class="col-auto">
+        <img src="resim/byztlk.jpg" class="hayvan" alt="" />
+      </div>
+      <div class="col-auto">
+        <img src="resim/dag.jpg" class="doga" alt="" />
+      </div>
+      <div class="col-auto">
+        <img src="resim/fil.jpg" class="hayvan" alt="" />
+      </div>
+      <div class="col-auto">
+        <img src="resim/golet.jpg" class="doga" alt="" />
+      </div>
+      <div class="col-auto">
+        <img src="resim/ksshr.jpg" class="sehir" alt="" />
+      </div>
+      <div class="col-auto">
+        <img src="resim/kus.jpg" class="hayvan" alt="" />
+      </div>
+      <div class="col-auto">
+        <img src="resim/orman.jpg" class="doga" alt="" />
+      </div>
+      <div class="col-auto">
+        <img src="resim/tpplk.jpg" class="sehir" alt="" />
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("button").click(function () {
+          var deger = $(this).attr("class");
+          var deger = deger.split("--");
+          switch (deger[1]) {
+            case "sehir":
+              $("img").parent().removeClass("gizle");
+              $("img").not(".sehir").parent().addClass("gizle");
+              break;
+
+            case "doga":
+              $("img").parent().removeClass("gizle");
+              $("img").not(".doga").parent().addClass("gizle");
+              break;
+
+            case "hayvan":
+              $("img").parent().removeClass("gizle");
+              $("img").not(".hayvan").parent().addClass("gizle");
+              break;
+            default:
+              $("img").parent().removeClass("gizle");
+              break;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
